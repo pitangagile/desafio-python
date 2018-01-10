@@ -1,12 +1,13 @@
 import json
 import csv
+import sys
 
-json_file = open("pytan_series.json")
+json_file = open(sys.argv[1])
 list_json_pytan = json.load(json_file)
 
 database = []
 
-with open("via_lactea_series.csv") as csv_file:
+with open(sys.argv[2]) as csv_file:
     fieldnames = csv_file.readline().split(",")
     fieldnames = [x.rstrip() for x in fieldnames]
     list_json_lactea = csv.DictReader(csv_file, fieldnames)
